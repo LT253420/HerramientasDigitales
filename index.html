@@ -56,9 +56,40 @@
       <button onclick="volverA('main')">← Volver</button>
       <h2>Códigos de Servicio</h2>
       <div class="response-box static justificado">
-        Esta es una lista para recopilar páginas Web o utilidades Que solemos usar cotidianamente en la Reparación de celulares y servicio técnico, pero en un solo lugar y tener acceso con un solo click
-       Es simple, vas a encontrar diferentes páginas, con su categorías y funciones en cada botón.<br><br>
-        Solo haces click, y te redirige a la página correspondiente
+        Estos códigos, algunos pueden funcioanr y otros no, según los equipos en los que se prueben. Es probable que alguno de estos no funcione, ya que varían en cada marca, modelo y Año del equipo. <br><br>
+      
+Algunos ejemplos de códigos USSD son:
+        <br>
+•	#06#: Consultar el IMEI del teléfono <br>
+•	#133#: Consultar el saldo en líneas prepago <br>
+•	#43#: Activar la llamada en espera <br>
+•	#31#: Ocultar el número de teléfono al realizar llamadas <br>
+•	#92#: Volver a llamar al último número que realizó una llamada entrante <br>
+•	##37263##***: Mostrar información de la pantalla en un teléfono Xiaomi <br>
+•	##4636##***: Mostrar información sobre el teléfono, la batería y las estadísticas de uso en un teléfono Xiaomi <br>
+•	##7780##***: Restablecer un teléfono Xiaomi al estado de fábrica <br>
+•	#12580369#*: Obtener información sobre el software y el hardware en un teléfono Android <br>
+
+<h2>Codigos de servicio:</h2> <br><br>
+Service Code Lenovo: *#*#4636*# <br>
+Service Code ZTE: *983*0# <br>
+Service Code OnePlus: *#*#2346579#*#* <br>
+Service Code Honor: *#*#2345#*#* <br>
+Service Code Motorola: *#*#2486#*#* <br>
+Service Code Samsung: *#0*# <br>
+Service code Samsung Alternativo: *#*#88#*#* <br>
+Service Code Xiaomi: *#*#6484#*#* <br> 
+Service code Alt Xiaomi (redmi): *#*#64663#*#* <br>
+Service Code Alcatel: *#2886# <br>
+Service Code Oppo: *#899# <br>
+Service Code Huawei: *#*#2846579#*#* <br>
+Service Code Sony: *#*#7378423#*#* <br>
+Service Code Vivo: *#*#225#*#* <br>
+Service Code HTC: *#*#3424#*#* <br>
+Field Test Mode Iphone (solo señal): *3001#12345#* <br><br>
+(también se pueden descargar Apps en la App Store como TestM o Phone Diagnostics que también pueden realizar pruebas básicas similares a el service code)
+
+        
       </div>
     </div>
     
@@ -111,7 +142,8 @@
 <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script>
 
 
-  // Tu configuración de Firebase
+ <!-- Tu configuración de Firebase -->
+    
  <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
   import { getAuth, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, signOut } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";

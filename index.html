@@ -113,9 +113,49 @@
   // Inicializar Firebase
   const app = firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
-</script>
 
     //acá terminan el script de firebase//
+
+ // Login con Google
+  function login() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider)
+      .then((result) => {
+        const user = result.user;
+        document.getElementById("emailText").innerText = user.email;
+        document.getElementById("logoutBtn").style.display = "inline-block";
+        document.getElementById("loginContainer").style.display = "none";
+        document.getElementById("appContent").style.display = "flex";
+      })
+      .catch((error) => {
+        console.error("Error en login:", error);
+        alert("Error al iniciar sesión: " + error.message);
+      });
+  }
+
+  // Logout
+  function logout() {
+    auth.signOut().then(() => {
+      document.getElementById("loginContainer").style.display = "block";
+      document.getElementById("appContent").style.display = "none";
+      document.getElementById("logoutBtn").style.display = "none";
+      document.getElementById("emailText").innerText = "";
+    });
+  }
+
+  // Persistencia automática del usuario autenticado
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      document.getElementById("emailText").innerText = user.email;
+      document.getElementById("logoutBtn").style.display = "inline-block";
+      document.getElementById("loginContainer").style.display = "none";
+      document.getElementById("appContent").style.display = "flex";
+    }
+  });
+  
+</script>
+
+  
 
 
       

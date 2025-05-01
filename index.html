@@ -44,13 +44,9 @@
       <button onclick="volverA('main')">← Volver</button>
       <h2>¿Cómo usar la lista?</h2>
       <div class="response-box static justificado">
-        La lista está hecha de forma simple: le das a inicio, y seleccionás de toda la lista la falla que ves en tu equipo.
-        Te van a salir las posibles fallas de un equipo para que las revises. Tocás en una, y te aparece un texto acerca de sus posibles soluciones.<br><br>
-        Recordá que un componente dañado se cambia por uno nuevo, un componente desconectado se vuelve a conectar,
-        un componente faltante se coloca, un componente o zona sucia o sulfatada se limpia.
-        Y si dos o más componentes funcionan, el problema está en la conexión entre ambos (FPC).<br><br>
-        En muchos casos, la lista te indicará dónde deberías revisar o el componente que podría generar la falla.
-        Está en el técnico decidir qué hacer ;)
+        Esta es una lista para recopilar páginas Web o utilidades Que solemos usar cotidianamente en la Reparación de celulares y servicio técnico, pero en un solo lugar y tener acceso con un solo click
+       Es simple, vas a encontrar diferentes páginas, con su categorías y funciones en cada botón.<br><br>
+        Solo haces click, y te redirige a la página correspondiente
       </div>
     </div>
 
@@ -76,7 +72,7 @@
   </div>
 
   <div style="background-color: #00c3ff; color: #000; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #00c3ff; margin-top: 10px;">
-    🤝 Te gustaría Colaborar?: <strong>Hacé tu aporte enviando al whatsapp fallas, soluciones, mediciones o ideas que tenga para que la lista crezca! <br><br> También si necesitás ayuda o tenés algun inconveniente con la lista, te podemos ayudar ;)</strong>
+    🤝 Te gustaría Colaborar?: <strong>Hacé tu aporte al whatsapp sobre páginas, utilidades ONLINE o ideas que tengas para que la lista crezca! <br><br> También si necesitás ayuda o tenés algun inconveniente con la lista, te podemos ayudar ;)</strong>
   </div>
 </div>
 
@@ -95,99 +91,6 @@
       <div>By Lucas M. Tuillier</div>
     </div>
   </div>
-
-    <!-- Scripts de Firebase -->
-<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script>
-
-<script>
-  // Configuración de tu proyecto (copiado desde Firebase Console)
-  const firebaseConfig = {
-    apiKey: "AIzaSyAq9IhfWEVyt-Cf-mWcwuF3JfuqAlc0k8I",
-    authDomain: "lista-fallas.firebaseapp.com",
-    projectId: "lista-fallas",
-    storageBucket: "lista-fallas.appspot.com",
-    messagingSenderId: "255303348505",
-    appId: "1:255303348505:web:c37b826c44080117b94a95"
-  };
-
-  // Inicializar Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
-
-    <script>
-  const provider = new firebase.auth.GoogleAuthProvider();
-
-  function loginWithGoogle() {
-    firebase.auth().signInWithPopup(provider)
-      .then((result) => {
-        const user = result.user;
-        document.getElementById('user-info').textContent = `Bienvenido, ${user.displayName}`;
-        document.getElementById('login-button').style.display = 'none';
-        document.getElementById('logout-button').style.display = 'inline-block';
-      })
-      .catch((error) => {
-        console.error("Error al iniciar sesión:", error);
-        alert("Hubo un error al iniciar sesión. Revisá la consola para más detalles.");
-      });
-  }
-
-  function logout() {
-    firebase.auth().signOut()
-      .then(() => {
-        document.getElementById('user-info').textContent = '';
-        document.getElementById('login-button').style.display = 'inline-block';
-        document.getElementById('logout-button').style.display = 'none';
-      })
-      .catch((error) => {
-        console.error("Error al cerrar sesión:", error);
-        alert("Hubo un error al cerrar sesión. Revisá la consola para más detalles.");
-      });
-  }
-</script>
-
-    
-  <!-- Scripts -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-    import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
-
-    const firebaseConfig = {
-    apiKey: "AIzaSyD29DiaYJ1s3GeOSJKquL2jElp8NVoXAII",
-    authDomain: "login-de-diagnostico-de-placa.firebaseapp.com",
-    projectId: "login-de-diagnostico-de-placa",
-    storageBucket: "login-de-diagnostico-de-placa.firebasestorage.app",
-    messagingSenderId: "248604555689",
-    appId: "1:248604555689:web:f0f0f226bd8cd377dd6cb8"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth();
-    const provider = new GoogleAuthProvider();
-
-    window.login = () => signInWithPopup(auth, provider).catch(error => alert("Error al iniciar sesión: " + error.message));
-    window.logout = () => signOut(auth);
-
-    onAuthStateChanged(auth, user => {
-      const loginContainer = document.getElementById("loginContainer");
-      const appContent = document.getElementById("appContent");
-      const emailText = document.getElementById("emailText");
-      const logoutBtn = document.getElementById("logoutBtn");
-
-      if (user) {
-        loginContainer.style.display = "none";
-        appContent.style.display = "flex";
-        appContent.classList.add("hud-appear");
-        emailText.textContent = user.email;
-        logoutBtn.style.display = "inline-block";
-      } else {
-        loginContainer.style.display = "flex";
-        appContent.style.display = "none";
-        logoutBtn.style.display = "none";
-        emailText.textContent = "";
-      }
-    });
-  </script>
 
 
 <script>

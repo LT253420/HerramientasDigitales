@@ -35,7 +35,8 @@
 
     <div class="button-container" id="mainMenu">
       <button onclick="mostrarComoUsar()">Cómo usar</button>
-      <button onclick="mostrarFallas()">Inicio - Ver fallas</button>
+      <button onclick="mostrarFallas()">Páginas Útiles</button>
+      <button onclick="mostrarCodigosDeServicio()">Códigos de Servicio</button>
       <button onclick="mostrarContacto()">Contacto - Soporte</button>
       <button onclick="toggleTheme()">Modo Claro / Oscuro</button>
 
@@ -51,6 +52,16 @@
       </div>
     </div>
 
+  <div class="button-container" id="CodigosServ" style="display:none;">
+      <button onclick="volverA('main')">← Volver</button>
+      <h2>Códigos de Servicio</h2>
+      <div class="response-box static justificado">
+        Esta es una lista para recopilar páginas Web o utilidades Que solemos usar cotidianamente en la Reparación de celulares y servicio técnico, pero en un solo lugar y tener acceso con un solo click
+       Es simple, vas a encontrar diferentes páginas, con su categorías y funciones en cada botón.<br><br>
+        Solo haces click, y te redirige a la página correspondiente
+      </div>
+    </div>
+    
     <div class="button-container" id="fallasMenu" style="display:none;">
       <button onclick="volverA('main')">← Volver</button>
       <button onclick="showResponse('No enciende')">No enciende</button>
@@ -219,6 +230,17 @@ function mostrarComoUsar() {
   });
 }
 
+function mostrarCodigosDeServicio() {
+  ocultarTodo();
+  const uso = document.getElementById("usoMenu");
+  uso.style.display = "flex";
+  requestAnimationFrame(() => {
+    uso.classList.add("hud-appear");
+  });
+}
+
+
+  
 document.addEventListener('contextmenu', event => event.preventDefault());
 
 function mostrarFallas() {

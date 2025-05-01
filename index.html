@@ -246,6 +246,24 @@ Algunos ejemplos de códigos USSD son:
       document.getElementById("appContent").style.display = "flex";
     }
   });
+
+const dbRef = firebase.database().ref("visitas");
+
+  dbRef.on("value", (snapshot) => {
+    const visitas = snapshot.numChildren();
+    document.getElementById("contador-visitas").innerText = "Visitas: " + visitas;
+  });
+   
+    const database = firebase.database();
+
+  // Obtener la fecha y hora actual
+  const fechaHora = new Date().toISOString();
+
+  // Guardar una nueva visita
+  database.ref("visitas").push({
+    fecha: fechaHora,
+    userAgent: navigator.userAgent
+  });
  </script>
 
 <script>

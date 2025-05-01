@@ -94,55 +94,28 @@
   </div>
 
     <!-- Scripts de Firebase -->
-      <script>
-        
-  
-      <!-- Scripts Oficiales, sirve para agregar y autorizar el firebase -->
-     
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
+  <!-- Firebase App (core SDK) -->
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
+<!-- Firebase Auth -->
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script>
 
-        <!-- Script que dá firebase -->
-    const firebaseConfig = {
-  apiKey: "AIzaSyBFXj0BAZ9uB_yQuhxpFWDdjuKRy7Tv4A4",
-  authDomain: "herramientasdigitales-bbf23.firebaseapp.com",
-  projectId: "herramientasdigitales-bbf23",
-  storageBucket: "herramientasdigitales-bbf23.firebasestorage.app",
-  messagingSenderId: "816359547560",
-  appId: "1:816359547560:web:378f71ec7d167db448989d"
-};
+<script>
+  // Tu configuración de Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyBFXj0BAZ9uB_yQuhxpFWDdjuKRy7Tv4A4",
+    authDomain: "herramientasdigitales-bbf23.firebaseapp.com",
+    projectId: "herramientasdigitales-bbf23",
+    storageBucket: "herramientasdigitales-bbf23.firebasestorage.app",
+    messagingSenderId: "816359547560",
+    appId: "1:816359547560:web:378f71ec7d167db448989d"
+  };
 
+  // Inicializar Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+</script>
 
-
-  <!-- Login de Firebase-->
-      
-function loginWithGoogle() {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  auth.signInWithPopup(provider)
-    .then((result) => {
-      const user = result.user;
-      document.getElementById("loginContainer").style.display = "none";
-      document.getElementById("appContent").style.display = "flex";
-      document.getElementById("logoutBtn").style.display = "inline-block";
-      document.getElementById("emailText").textContent = user.email;
-    })
-    .catch((error) => {
-      console.error("Error en login:", error);
-      alert("Error al iniciar sesión: " + error.message);
-    });
-}
-
-        window.login = () => signInWithPopup(auth, provider).catch(error => alert("Error al iniciar sesión: " + error.message));
-    window.logout = () => signOut(auth); l
-      
-function logout() {
-  auth.signOut().then(() => {
-    document.getElementById("loginContainer").style.display = "flex";
-    document.getElementById("appContent").style.display = "none";
-    document.getElementById("logoutBtn").style.display = "none";
-    document.getElementById("emailText").textContent = "";
-  });
-}
+    //acá terminan el script de firebase//
 
 
       

@@ -99,30 +99,27 @@
 <!-- Firebase Auth -->
 <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script>
 
-<script>
+
   // Tu configuración de Firebase
+ <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+  import { getAuth, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, signOut } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+
   const firebaseConfig = {
     apiKey: "AIzaSyBFXj0BAZ9uB_yQuhxpFWDdjuKRy7Tv4A4",
     authDomain: "herramientasdigitales-bbf23.firebaseapp.com",
     projectId: "herramientasdigitales-bbf23",
-   storageBucket: "herramientasdigitales-bbf23.appspot.com",
+    storageBucket: "herramientasdigitales-bbf23.appspot.com",
     messagingSenderId: "816359547560",
     appId: "1:816359547560:web:378f71ec7d167db448989d"
   };
 
-  // Inicializar Firebase
-  const app = firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
 
-    //acá terminan el script de firebase//
-
-</script>
-
- <script>   
- // Login con Google
-  function login() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider)
+  window.login = () => {
+    signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;
         document.getElementById("emailText").innerText = user.email;
@@ -134,20 +131,19 @@
         console.error("Error en login:", error);
         alert("Error al iniciar sesión: " + error.message);
       });
-  }
+  };
 
-  // Logout
-  function logout() {
-    auth.signOut().then(() => {
+  window.logout = () => {
+    signOut(auth).then(() => {
       document.getElementById("loginContainer").style.display = "block";
       document.getElementById("appContent").style.display = "none";
       document.getElementById("logoutBtn").style.display = "none";
       document.getElementById("emailText").innerText = "";
     });
-  }
+  };
 
   // Persistencia automática del usuario autenticado
-  auth.onAuthStateChanged((user) => {
+   onAuthStateChanged(auth, (user) => {
     if (user) {
       document.getElementById("emailText").innerText = user.email;
       document.getElementById("logoutBtn").style.display = "inline-block";

@@ -39,7 +39,7 @@
       <button onclick="mostrarCodigosDeServicio()">Códigos de Servicio</button>
       <button onclick="mostrarContacto()">Contacto - Soporte</button>
       <button onclick="toggleTheme()">Modo Claro / Oscuro</button>
-
+       <div id="contador-visitas"> 👁️‍🗨️ </div>
     </div>
 
     <div class="button-container" id="usoMenu" style="display:none;">
@@ -247,7 +247,19 @@ Algunos ejemplos de códigos USSD son:
     }
   });
  </script>
-      
+
+<script>
+  // Cambiá estos valores si querés otro namespace o key
+  const namespace = "mi-pagina-visitas";
+  const key = "contador";
+
+  fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("contador-visitas").innerText = `Visitas: ${data.value}`;
+    });
+</script>
+    
 <script>
 
     const respuestasPorFalla = {

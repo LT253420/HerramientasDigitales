@@ -94,8 +94,15 @@
   </div>
 
     <!-- Scripts de Firebase -->
+      <script>
+        
+  
+      <!-- Scripts Oficiales, sirve para agregar y autorizar el firebase -->
+     
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
 
-    <script>
+        <!-- Script que dá firebase -->
     const firebaseConfig = {
   apiKey: "AIzaSyBFXj0BAZ9uB_yQuhxpFWDdjuKRy7Tv4A4",
   authDomain: "herramientasdigitales-bbf23.firebaseapp.com",
@@ -105,14 +112,11 @@
   appId: "1:816359547560:web:378f71ec7d167db448989d"
 };
 
-   <!-- Scripts Oficiales, sirve para agregar y autorizar el firebase -->
-     
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
+
 
   <!-- Login de Firebase-->
       
-function login() {
+function loginWithGoogle() {
   const provider = new firebase.auth.GoogleAuthProvider();
   auth.signInWithPopup(provider)
     .then((result) => {
@@ -127,6 +131,9 @@ function login() {
       alert("Error al iniciar sesión: " + error.message);
     });
 }
+
+        window.login = () => signInWithPopup(auth, provider).catch(error => alert("Error al iniciar sesión: " + error.message));
+    window.logout = () => signOut(auth); l
       
 function logout() {
   auth.signOut().then(() => {

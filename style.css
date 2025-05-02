@@ -92,37 +92,77 @@ h2 {
   gap: 1rem;
 }
 
-#Violeta {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+morado {
+  background: transparent;
+  border: 2px solid #8f0cf2
   color: #8f0cf2;
+  font-size: 1rem;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px #8f0cf255;
 }
-#Verde {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  color: #8f0cf2;
+
+morado:hover {
+  background-color: #8f0cf2;
+  color: #222222;
+  box-shadow: 0 0 15px #8f0cf2;
 }
-#Blanco {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+
+verde {
+  background: transparent;
+  border: 2px solid #0cf20c
+  color: #0cf20c;
+  font-size: 1rem;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px #0cf20c55;
+}
+
+verde:hover {
+  background-color: #0cf20c;
+  color: #222222;
+  box-shadow: 0 0 15px ##0cf20c;
+}
+
+
+blanco {
+  background: transparent;
+  border: 2px solid #ffffff
   color: #ffffff;
+  font-size: 1rem;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px #ffffff55;
 }
-#Celeste {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+
+blanco:hover {
+  background-color: #ffffff;
+  color: #222222;
+  box-shadow: 0 0 15px #ffffff;
+}
+
+celeste {
+  background: transparent;
+  border: 2px solid #00fcf4
   color: #00fcf4;
+  font-size: 1rem;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px #00fcf4;
+}
+
+celeste:hover {
+  background-color: #00fcf4;
+  color: #222222;
+  box-shadow: 0 0 15px #00fcf4;
 }
 
 /* Botones generales */

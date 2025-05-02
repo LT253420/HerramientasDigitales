@@ -136,7 +136,7 @@ button:hover {
 .boton-box {
   padding: 10px;
   border-radius: 5px;
-  margin-top: 10px;
+  margin-top: 20px;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease-in-out;
 }

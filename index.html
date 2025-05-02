@@ -36,6 +36,7 @@
     <div class="button-container" id="mainMenu">
       <button onclick="mostrarComoUsar()">Cómo usar</button>
       <button onclick="mostrarFallas()">Inicio - Ver fallas</button>
+      <button onclick="mostrarCodigos()">Códigos de servicio</button>
       <button onclick="mostrarContacto()">Contacto - Soporte</button>
       <button onclick="toggleTheme()">Modo Claro / Oscuro</button>
 
@@ -58,9 +59,28 @@
       <button onclick="showResponse('No puedo hacer llamadas')">No puedo hacer llamadas</button>
       <button onclick="showResponse('El teléfono se calienta')">El teléfono se calienta</button>
       <button onclick="showResponse('Mi celular se apaga solo')">Mi celular se apaga solo</button>
+      
 
 
     </div>
+
+<div class="button-container" id="codigosMenu" style="display:none;">
+  <button onclick="volverA('main')">← Volver</button>
+  <h2>Códigos de Servicio</h2>
+
+  <!-- Caja estilo botón ENCENDIDO -->
+  <div style="background-color: #00ff99; color: #000; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #00ff99; margin-top: 10px;">
+    ✅ Código *#06# <br>
+    🔹 Muestra el IMEI del equipo.
+  </div>
+
+  <!-- Caja estilo botón APAGADO -->
+  <div style="background-color: #333; color: #aaa; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #666; margin-top: 10px;">
+    ⛔ Código *#1234# <br>
+    🔹 Ver versión de firmware (desactivado en algunos modelos).
+  </div>
+</div>
+
     
 <div class="button-container" id="contactoMenu" style="display:none;">
   <button onclick="volverA('main')">← Volver</button>
@@ -230,7 +250,15 @@ function mostrarFallas() {
   });
 }
 
-
+function mostrarCodigos() {
+  ocultarTodo();
+  const codigos = document.getElementById("codigosMenu");
+  codigos.style.display = "flex";
+  requestAnimationFrame(() => {
+    codigos.classList.add("hud-appear");
+  });
+}
+  
 function mostrarContacto() {
   ocultarTodo();
   const contacto = document.getElementById("contactoMenu");

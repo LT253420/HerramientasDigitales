@@ -132,6 +132,30 @@ button:hover {
   background: transparent; /* o #00000010 si querés sombra leve , o transparent si querés transparente*/
 }
 
+/* Cajas tipo botón generales */
+.boton-box {
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Botón ENCENDIDO */
+.boton-on {
+  background-color: #00ff99;
+  color: #000;
+  box-shadow: 0 0 15px #00ff99;
+}
+
+/* Botón APAGADO */
+.boton-off {
+  background-color: #333;
+  color: #aaa;
+  box-shadow: 0 0 15px #666;
+}
+
+
 
 .footer img {
   max-height: 50px;

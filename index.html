@@ -59,25 +59,25 @@
        <button onclick="window.open('https://myaccount.google.com/intro/find-your-phone?hl=es', '_blank')">Encontrar dispositivo Android</button>
          </div>
   
-      <div class="verde" id="mainMenu">
+      <div class="verde" id="verdeMenu" style="display:none;">
         <button onclick="window.open('https://rentry.co/proveedorescurso', '_blank')">Lista de Proveedores</button>
         <button onclick="window.open('https://www.gsmarena.com/', '_blank')">GSM Arena - Encontrar dispositivo</button>
        </div>
         
-      <div class="morado" id="mainMenu">
+      <div class="morado" id="moradoMenu" style="display:none;">
         <button onclick="window.open('https://lens.google/intl/es-419/#cta-section', '_blank')">Google Lens</button>
         <button onclick="window.open('https://dolarhoy.com/', '_blank')">Dolar Hoy</button>
         <button onclick="window.open('https://enacom.gob.ar/imei', '_blank')">Enacom - Consultar IMEI ARG</button>
         <button onclick="window.open('https://drive.google.com/drive/u/0/folders/1FGlBaXEkI0Oxy4j6FAWtg4aaE9j980UI', '_blank')">Drive Curso Reparación de Celulares</button>
          </div> 
     
-      <div class="blanco" id="mainMenu">
+      <div class="blanco" id="blancoMenu" style="display:none;">
         <button onclick="window.open('https://www.movical.net/ar-es/chequear-imei', '_blank')">Movical - Consultar IMEI ARG</button>
         <button onclick="window.open('https://www.youtube.com/@GSMPrimeNext', '_blank')">GSM Prime - Cuenta de google</button>
         <button onclick="window.open('https://www.imei.info/', '_blank')">IMEI info - Consultar Modelo y datos</button>
          </div>
       
-        <div class="celeste" id="mainMenu">
+        <div class="celeste" id="celesteMenu" style="display:none;">
         <button onclick="window.open('https://esquematicos.org/', '_blank')">Esquematicos.org - Buscar Diagramas</button>
         <button onclick="window.open('https://www.gsmarena.com/', '_blank')">Check Imei - Consultar IMEI</button>
         <button onclick="window.open('https://samfw.com/', '_blank')">SamFW - Firmware de Dispositivos</button>
@@ -349,6 +349,10 @@ function mostrarFallas() {
   ocultarTodo();
   const fallas = document.getElementById("fallasMenu");
   fallas.style.display = "flex";
+  document.getElementById("verdeMenu").style.display = "flex";
+  document.getElementById("moradoMenu").style.display = "flex";
+  document.getElementById("blancoMenu").style.display = "flex";
+  document.getElementById("celesteMenu").style.display = "flex";
   requestAnimationFrame(() => {
     fallas.classList.add("hud-appear");
   });
@@ -394,7 +398,7 @@ function goToHome() {
     }
 
 function ocultarTodo() {
-      ["mainMenu", "usoMenu", "fallasMenu", "codigosMenu", "respuestas", "contactoMenu"].forEach(id => {
+      ["mainMenu", "usoMenu", "fallasMenu", "codigosMenu", "moradoMenu", "verdeMenu", "celesteMenu", "blancoMenu", "respuestas", "contactoMenu"].forEach(id => {
         const el = document.getElementById(id);
         el.style.display = "none";
       });

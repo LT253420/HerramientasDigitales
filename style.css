@@ -115,28 +115,30 @@ h2 {
 
 .verde button {
   background: transparent;
-  border: 2px solid #0cf20c;
-  color: #0cf20c;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  font-size: 1rem;
   gap: 20px;
   width: 100%;
-  z-index: 1;
-  font-size: 1rem;
-  width: 100%;
-  max-width: 600px;
-  padding: 12px 20px;
+  max-width: 400px;
+  padding: 0 20px;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 0 8px #0cf20c55;
+  box-shadow: 0 0 8px #ffffff55;
 }
 
 .verde button:hover {
   background-color: #0cf20c;
   color: #222222;
   box-shadow: 0 0 15px ##0cf20c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  gap: 20px;
 }
 
 

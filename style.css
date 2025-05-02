@@ -219,6 +219,12 @@ button:hover {
   margin-top: 10px;
 }
 
+#codigosMenu button {
+  margin: 8px;
+}
+
+
+
 /* Botón de logout */
 #logoutBtn {
   background: transparent;

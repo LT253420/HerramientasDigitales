@@ -92,9 +92,9 @@ h2 {
   gap: 1rem;
 }
 
-morado {
+.morado button {
   background: transparent;
-  border: 2px solid #8f0cf2
+  border: 2px solid #8f0cf2;
   color: #8f0cf2;
   font-size: 1rem;
   padding: 12px;
@@ -104,15 +104,15 @@ morado {
   box-shadow: 0 0 8px #8f0cf255;
 }
 
-morado:hover {
+.morado button:hover {
   background-color: #8f0cf2;
   color: #222222;
   box-shadow: 0 0 15px #8f0cf2;
 }
 
-verde {
+.verde button {
   background: transparent;
-  border: 2px solid #0cf20c
+  border: 2px solid #0cf20c;
   color: #0cf20c;
   font-size: 1rem;
   padding: 12px;
@@ -122,16 +122,16 @@ verde {
   box-shadow: 0 0 8px #0cf20c55;
 }
 
-verde:hover {
+.verde button:hover {
   background-color: #0cf20c;
   color: #222222;
   box-shadow: 0 0 15px ##0cf20c;
 }
 
 
-blanco {
+.blanco button {
   background: transparent;
-  border: 2px solid #ffffff
+  border: 2px solid #ffffff;
   color: #ffffff;
   font-size: 1rem;
   padding: 12px;
@@ -141,15 +141,15 @@ blanco {
   box-shadow: 0 0 8px #ffffff55;
 }
 
-blanco:hover {
+.blanco button:hover {
   background-color: #ffffff;
   color: #222222;
   box-shadow: 0 0 15px #ffffff;
 }
 
-celeste {
+.celeste button {
   background: transparent;
-  border: 2px solid #00fcf4
+  border: 2px solid #00fcf4;
   color: #00fcf4;
   font-size: 1rem;
   padding: 12px;
@@ -159,7 +159,7 @@ celeste {
   box-shadow: 0 0 8px #00fcf4;
 }
 
-celeste:hover {
+.celeste button:hover {
   background-color: #00fcf4;
   color: #222222;
   box-shadow: 0 0 15px #00fcf4;

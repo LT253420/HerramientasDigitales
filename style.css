@@ -115,8 +115,8 @@ h2 {
 
 .verde button {
   background: transparent;
-  border: 2px solid #ffffff;
-  color: #ffffff;
+  border: 2px solid #00ff00;
+  color: #00ff00;
   font-size: 1rem;
   gap: 20px;
   width: 100%;
@@ -125,7 +125,7 @@ h2 {
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 0 8px #ffffff55;
+  box-shadow: 0 0 8px #00ff0055;
 }
 
 .verde button:hover {

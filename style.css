@@ -97,10 +97,6 @@ h2 {
   border: 2px solid #8f0cf2;
   color: #8f0cf2;
   font-size: 1rem;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  max-width: 400px;
   padding: 0 20px;
   border-radius: 8px;
   cursor: pointer;
@@ -119,10 +115,6 @@ h2 {
   border: 2px solid #0cf20c;
   color: #0cf20c;
   font-size: 1rem;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  max-width: 400px;
   padding: 0 20px;
   border-radius: 8px;
   cursor: pointer;
@@ -142,10 +134,6 @@ h2 {
   border: 2px solid #ffffff;
   color: #ffffff;
   font-size: 1rem;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  max-width: 400px;
   padding: 0 20px;
   border-radius: 8px;
   cursor: pointer;
@@ -164,10 +152,6 @@ h2 {
   border: 2px solid #00fcf4;
   color: #00fcf4;
   font-size: 1rem;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  max-width: 400px;
   padding: 0 20px;
   border-radius: 8px;
   cursor: pointer;
@@ -187,10 +171,6 @@ button {
   border: 2px solid var(--color-principal);
   color: var(--color-principal);
   font-size: 1rem;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  max-width: 400px;
   padding: 0 20px;
   border-radius: 8px;
   cursor: pointer;

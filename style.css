@@ -152,7 +152,7 @@ button:hover {
 .boton-off {
   background-color: #333;
   color: #e93802;
-  box-shadow: 0 0 15px #666;
+  box-shadow: 0 0 15px #e9380255;
 }
 
 

@@ -297,10 +297,13 @@ function toggleTheme() {
 
 function goToHome() {
       volverA("main");
+  if (menu === 'main') {
+    document.getElementById("mainMenu").style.display = "flex";
+  }
     }
 
 function ocultarTodo() {
-      ["mainMenu", "usoMenu", "fallasMenu", "respuestas", "contactoMenu"].forEach(id => {
+      ["mainMenu", "usoMenu", "fallasMenu", "codigosMenu", "respuestas", "contactoMenu"].forEach(id => {
         const el = document.getElementById(id);
         el.style.display = "none";
       });

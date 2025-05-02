@@ -15,6 +15,7 @@ html, body {
   color: #e93802;
   overflow-x: hidden;
   overflow-y: auto;
+  overflow: visible;
 }
 
 

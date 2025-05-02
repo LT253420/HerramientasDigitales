@@ -117,12 +117,15 @@ h2 {
   background: transparent;
   border: 2px solid #0cf20c;
   color: #0cf20c;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
   font-size: 1rem;
-  gap: 20px;
   width: 100%;
   max-width: 400px;
   max-width: 600px;
-  margin: 10px auto; /* espaciado vertical y centrado horizontal */
   padding: 12px 20px;
   border-radius: 8px;
   cursor: pointer;

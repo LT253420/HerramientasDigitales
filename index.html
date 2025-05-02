@@ -33,18 +33,16 @@
   <div id="appContent" style="display:none; flex-direction: column; align-items: center; width: 100%;">
     <h1>Herramientas Digitales</h1>
 
-    <div class="button-container" id="main">
+    <div class="button-container" id="mainMenu">
       <button onclick="mostrarComoUsar()">Cómo usar</button>
-      <button onclick="mostrarFallas()">Páginas Útiles</button>
-      <button onclick="mostrarCodigosServ()">Códigos de Servicio</button>
+      <button onclick="mostrarFallas()">Inicio - Ver fallas</button>
       <button onclick="mostrarContacto()">Contacto - Soporte</button>
       <button onclick="toggleTheme()">Modo Claro / Oscuro</button>
-       <div id="contador-visitas" style="color: lime; font-size: 24px;">
-  👁️ <span id="visitCount">0</span>
-       </div>
 
-    <div class="button-container" id="mostrarComoUsar" style="display:none;">
-      <button onclick="volverA('mainMenu')">← Volver</button>
+    </div>
+
+    <div class="button-container" id="usoMenu" style="display:none;">
+      <button onclick="volverA('main')">← Volver</button>
       <h2>¿Cómo usar la lista?</h2>
       <div class="response-box static justificado">
         Esta es una lista para recopilar páginas Web o utilidades Que solemos usar cotidianamente en la Reparación de celulares y servicio técnico, pero en un solo lugar y tener acceso con un solo click
@@ -53,93 +51,8 @@
       </div>
     </div>
 
-  <div class="button-container" id="mostrarCodigosServ" style="display:none;">
-      <button onclick="volverA('mainMenu')">← Volver</button>
-      <h2>Códigos de Servicio</h2>
-      <div class="response-box static justificado">
-        Estos códigos, algunos pueden funcioanr y otros no, según los equipos en los que se prueben. Es probable que alguno de estos no funcione, ya que varían en cada marca, modelo y Año del equipo. <br><br>
-      
-Algunos ejemplos de códigos USSD son:
-    
-<h2>Codigos de servicio:</h2> <br><br>
-
-(también se pueden descargar Apps en la App Store como TestM o Phone Diagnostics que también pueden realizar pruebas básicas similares a el service code)
-
-      </div>
-    
-    <div style="background-color: #ff9900; color: #000; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #ff9900; margin-top: 10px;">
-    #06#: Consultar el IMEI del teléfono  
-    </div>
-    
-    <div style="background-color: #ff9900; color: #000; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #ff9900; margin-top: 10px;">
-    Service Code Lenovo: *#*#4636*# 
-    </div>
-    
-    <div style="background-color: #ff9900; color: #000; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #ff9900; margin-top: 10px;">
-    Service Code ZTE: *983*0#   </div>
-    
-    <div style="background-color: #ff9900; color: #000; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #ff9900; margin-top: 10px;">
-    Service Code OnePlus: *#*#2346579#*#* 
-    </div>
-    
-    <div style="background-color: #ff9900; color: #000; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #ff9900; margin-top: 10px;">
-    Service Code Honor: *#*#2345#*#* 
-    </div>
-    
-    <div style="background-color: #ff9900; color: #000; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #ff9900; margin-top: 10px;">
-    Service Code Motorola: *#*#2486#*#* 
-    </div>
-    
-    <div style="background-color: #ff9900; color: #000; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #ff9900; margin-top: 10px;">
-    Service Code Samsung: *#0*#   
-    </div>
-    
-    <div style="background-color: #ff9900; color: #000; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #ff9900; margin-top: 10px;">
-    Service code Samsung Alternativo: *#*#88#*#* 
-    </div>
-    
-    <div style="background-color: #ff9900; color: #000; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #ff9900; margin-top: 10px;">
-    Service Code Xiaomi: *#*#6484#*#* 
-    </div>
-    
-    <div style="background-color: #ff9900; color: #000; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #ff9900; margin-top: 10px;">
-    Service code Alt Xiaomi (redmi): *#*#64663#*#*   </div>
-    
-    <div style="background-color: #ff9900; color: #000; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #ff9900; margin-top: 10px;">
-    Service Code Alcatel: *#2886# 
-    </div>
-    
-    <div style="background-color: #ff9900; color: #000; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #ff9900; margin-top: 10px;">
-    Service Code Oppo: *#899#  
-    </div>
-
-    <div style="background-color: #ff9900; color: #000; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #ff9900; margin-top: 10px;">
-    Service Code Huawei: *#*#2846579#*#* 
-    </div>
-    
-    <div style="background-color: #ff9900; color: #000; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #ff9900; margin-top: 10px;">
-    Service Code Sony: *#*#7378423#*#* 
-    </div>
-    
-    <div style="background-color: #ff9900; color: #000; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #ff9900; margin-top: 10px;">
-    Service Code Vivo: *#*#225#*#* 
-    </div>
-    
-    <div style="background-color: #ff9900; color: #000; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #ff9900; margin-top: 10px;">
-    Service Code HTC: *#*#3424#*#*  
-    </div>
-    
-    <div style="background-color: #ff9900; color: #000; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #ff9900; margin-top: 10px;">
-    Field Test Mode Iphone (solo señal): *3001#12345#* 
-    </div>
-      
-  </div>
-
-    </div>
-    </div>
-    
     <div class="button-container" id="fallasMenu" style="display:none;">
-      <button onclick="volverA('mainMenu')">← Volver</button>
+      <button onclick="volverA('main')">← Volver</button>
       <button onclick="showResponse('No enciende')">No enciende</button>
       <button onclick="showResponse('No tiene sonido')">No tiene sonido</button>
       <button onclick="showResponse('No puedo hacer llamadas')">No puedo hacer llamadas</button>
@@ -150,7 +63,7 @@ Algunos ejemplos de códigos USSD son:
     </div>
     
 <div class="button-container" id="contactoMenu" style="display:none;">
-  <button onclick="volverA('mainMenu')">← Volver</button>
+  <button onclick="volverA('main')">← Volver</button>
   <h2>Contacto - Soporte</h2>
   <div style="background-color: #ff9900; color: #000; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px #ff9900; margin-top: 10px;">
     📞 WhatsApp: 
@@ -187,8 +100,7 @@ Algunos ejemplos de códigos USSD son:
 <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script>
 
 
- <!-- Tu configuración de Firebase -->
-    
+  // Tu configuración de Firebase
  <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
   import { getAuth, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, signOut } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
@@ -239,38 +151,8 @@ Algunos ejemplos de códigos USSD son:
       document.getElementById("appContent").style.display = "flex";
     }
   });
-
-const dbRef = firebase.database().ref("visitas");
-
-  dbRef.on("value", (snapshot) => {
-    const visitas = snapshot.numChildren();
-    document.getElementById("contador-visitas").innerText = "Visitas: " + visitas;
-  });
-   
-    const database = firebase.database();
-
-  // Obtener la fecha y hora actual
-  const fechaHora = new Date().toISOString();
-
-  // Guardar una nueva visita
-  database.ref("visitas").push({
-    fecha: fechaHora,
-    userAgent: navigator.userAgent
-  })
  </script>
-
-<script>
-  // Cambiá estos valores si querés otro namespace o key
-  const namespace = "mi-pagina-visitas";
-  const key = "contador";
-
-  fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("contador-visitas").innerText = `Visitas: ${data.value}`;
-    });
-</script>
-    
+      
 <script>
 
     const respuestasPorFalla = {
@@ -337,17 +219,6 @@ function mostrarComoUsar() {
   });
 }
 
-function mostrarCodigosServ() {
-  ocultarTodo();
-  const uso = document.getElementById("CodigosServ");
-  uso.style.display = "flex";
-  requestAnimationFrame(() => {
-    uso.classList.add("hud-appear");
-  });
-}
-
-
-  
 document.addEventListener('contextmenu', event => event.preventDefault());
 
 function mostrarFallas() {
@@ -384,11 +255,11 @@ function toggleTheme() {
   }
 
 function goToHome() {
-      volverA("mainMenu");
+      volverA("main");
     }
 
 function ocultarTodo() {
-      ["mainMenu", "usoMenu", "CodigosServ", "fallasMenu", "respuestas", "contactoMenu"].forEach(id => {
+      ["mainMenu", "usoMenu", "fallasMenu", "respuestas", "contactoMenu"].forEach(id => {
         const el = document.getElementById(id);
         el.style.display = "none";
       });

@@ -12,7 +12,7 @@ html, body {
   padding: 0;
   background-color: var(--fondo-color);
   font-family: 'Consolas', 'Courier New', monospace;
-  color: #ff9900;
+  color: #e93802;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -52,8 +52,8 @@ h1 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 30px;
-  text-shadow: 0 0 8px #ff9900;
-  color: #ff9900;
+  text-shadow: 0 0 8px #e93802;
+  color: #e93802;
 }
 
 
@@ -94,20 +94,20 @@ h2 {
 /* Botones generales */
 button {
   background: transparent;
-  border: 2px solid #ff9900;
-  color: #ff9900;
+  border: 2px solid #e93802;
+  color: #e93802;
   font-size: 1rem;
   padding: 12px;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 0 8px #00c3ff55;
+  box-shadow: 0 0 8px #e9380255;
 }
 
 button:hover {
-  background-color: #ff9900;
+  background-color: #e93802;
   color: #222222;
-  box-shadow: 0 0 15px #ff9900;
+  box-shadow: 0 0 15px #e93802;
 }
 
 /* Caja de respuestas */
@@ -143,15 +143,15 @@ button:hover {
 
 /* Botón ENCENDIDO */
 .boton-on {
-  background-color: #00ff99;
+  background-color: #e93802;
   color: #000;
-  box-shadow: 0 0 15px #00ff99;
+  box-shadow: 0 0 15px #e93802;
 }
 
 /* Botón APAGADO */
 .boton-off {
   background-color: #333;
-  color: #aaa;
+  color: #e93802;
   box-shadow: 0 0 15px #666;
 }
 
@@ -169,7 +169,7 @@ button:hover {
   right: 20px;
   width: 55px;
   height: 55px;
-  border: 2px solid #ff9900;
+  border: 2px solid #e93802;
   background: #292929; /*transparent si querés que sea transparente. Sino, #292929*/
   display: flex;
   align-items: center;
@@ -182,14 +182,14 @@ button:hover {
 }
 
 .back-button svg {
-  fill: #ff9900;
+  fill: #e93802;
   width: 24px;
   height: 24px;
   transition: fill 0.3s ease;
 }
 
 .back-button:hover {
-  background-color: #ff9900;
+  background-color: #e93802;
 }
 
 .back-button:hover svg {
@@ -203,7 +203,7 @@ button:hover {
   right: 10px;
   width: 100%;
   padding: 10px 20px;
-  color: #ff9900;
+  color: #e93802;
   display: flex;
   flex-direction: row;
   background-color: rgba(0, 0, 0, 0.1); /* leve fondo si querés que se vea */
@@ -222,8 +222,8 @@ button:hover {
 /* Botón de logout */
 #logoutBtn {
   background: transparent;
-  color: #ff9900;
-  border: 2px solid #ff9900;
+  color: #e93802;
+  border: 2px solid #e93802;
   padding: 4px 8px;
   font-size: 0.85rem;
   border-radius: 6px;
@@ -269,25 +269,25 @@ button:hover {
   top: -30px;
   left: 0;
   font-size: 1.2rem;
-  color: #ff9900;
-  text-shadow: 0 0 8px #ff9900;
+  color: #e93802;
+  text-shadow: 0 0 8px #e93802;
 }
 
 .progress-bar {
   width: 100%;
   height: 12px;
-  border: 2px solid #ff9900;
-  box-shadow: 0 0 10px #ff9900;
+  border: 2px solid #e93802;
+  box-shadow: 0 0 10px #e93802;
   background: rgba(0, 255, 104, 0.1);
   overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
-  background: #ff9900;
+  background: #e93802;
   width: 0%;
   transition: width 0.2s ease-out;
-  box-shadow: 0 0 10px #ff9900;
+  box-shadow: 0 0 10px #e93802;
 }
 
 .flash {
@@ -376,17 +376,17 @@ button:hover {
 @keyframes hudFade {
   0% {
     opacity: 0;
-    filter: drop-shadow(0 0 8px #ff9900
+    filter: drop-shadow(0 0 8px #e93802
 );
   }
   30% {
     opacity: 1;
-    filter: drop-shadow(0 0 12px #ff9900
+    filter: drop-shadow(0 0 12px #e93802
 );
   }
   60% {
     opacity: 1;
-    filter: drop-shadow(0 0 6px #ff9900
+    filter: drop-shadow(0 0 6px #e93802
 );
   }
   100% {
@@ -397,19 +397,19 @@ button:hover {
   0% {
     opacity: 0;
     transform: scale(0.9);
-    filter: drop-shadow(0 0 8px #ff9900
+    filter: drop-shadow(0 0 8px #e93802
 );
   }
   30% {
     opacity: 1;
     transform: scale(1.02);
-    filter: drop-shadow(0 0 12px #ff9900
+    filter: drop-shadow(0 0 12px #e93802
 );
   }
   60% {
     opacity: 1;
     transform: scale(1);
-    filter: drop-shadow(0 0 6px #ff9900
+    filter: drop-shadow(0 0 6px #e93802
 );
   }
 }

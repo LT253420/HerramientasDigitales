@@ -132,6 +132,29 @@ h2 {
   box-shadow: 0 0 15px #8f0cf2;
 }
 
+.rojo button {
+  background: transparent;
+  border: 2px solid #ff0000;
+  color: #ff0000;
+  font-size: 1rem;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px #ff000055;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.rojo button:hover {
+  background-color: #ff0000;
+  color: #222222;
+  box-shadow: 0 0 15px #ff0000;
+}
+
 .verde button{
   background: transparent;
   border: 2px solid #00ff00;

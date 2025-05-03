@@ -309,7 +309,7 @@ button:hover {
   justify-content: center;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0 0 8px #ff990055;
+  box-shadow: 0 0 8px #ff000055;
   transition: all 0.3s ease;
   z-index: 999;
 }

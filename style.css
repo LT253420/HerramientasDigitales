@@ -107,6 +107,9 @@ h2 {
   padding-left: 0;
   align-self: flex-start;
 }
+.botones-verticales button {
+  margin: 8px 0; /* separa los botones verticalmente */
+}
 
 
 .morado button {

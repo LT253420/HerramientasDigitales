@@ -101,10 +101,13 @@ h2 {
   gap: 20px;
   margin: auto;
   padding: 0 20px;
-
-  
-
 }
+#botones-verticales {
+  margin-left: 0; /* O el valor necesario */
+  padding-left: 0;
+  align-self: flex-start;
+}
+
 
 .morado button {
   background: transparent;

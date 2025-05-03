@@ -102,6 +102,7 @@ h2 {
   margin: auto;
   padding: 0 20px;
   margin-bottom: 20px; /* o el valor que prefieras */
+  box-sizing: border-box;
 }
 #botones-verticales {
   margin-left: 0; /* O el valor necesario */

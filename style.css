@@ -540,12 +540,12 @@ button:hover {
     transform: scale(0.9);
     filter: drop-shadow(0 0 8px var(--color-principal));
   }
-  30% {
+  20% {
     opacity: 1;
     transform: scale(1.02);
     filter: drop-shadow(0 0 12px var(--color-principal));
   }
-  60% {
+  80% {
     opacity: 1;
     transform: scale(1);
     filter: drop-shadow(0 0 6px var(--color-principal));
@@ -565,7 +565,7 @@ body.light-mode .footer {
 
 
 .hud-appear {
-  animation: hudFade 0.4s ease-out;
+  animation: hudFade 0.6s ease-out;
 }
 
 * {

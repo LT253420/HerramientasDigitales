@@ -585,4 +585,9 @@ body.light-mode .footer {
   z-index: 9999;
 }
 
-
+/* Fuerza a ocultar el preloader para que no bloquee clicks */
+#preloader {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}

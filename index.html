@@ -406,12 +406,12 @@ function ocultarTodo() {
       }
     }
   </script>
-    <!-- Firebase (CDN compat) + Auth -->
+<!-- Firebase (CDN compat) + Auth -->
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 
 <script>
-  // --- Config de tu proyecto (la que me pasaste) ---
+  // --- Config de tu proyecto ---
   const firebaseConfig = {
     apiKey: "AIzaSyBW_GYELchHB-VoIc7TR1XPK-tkE4bLutg",
     authDomain: "iniciopruebabeta.firebaseapp.com",
@@ -421,59 +421,99 @@ function ocultarTodo() {
     appId: "1:17837784293:web:94538fc553b24751b5680c"
   };
 
-  // --- Inicializar Firebase + Auth (modo compat para HTML puro) ---
+  // --- Inicializar Firebase (compat) ---
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
   const provider = new firebase.auth.GoogleAuthProvider();
+  provider.setCustomParameters({ prompt: 'select_account' });
+  auth.languageCode = 'es';
 
-  // --- Referencias a elementos del DOM que ya existen en tu HTML ---
+  // --- DOM que ya existe en tu HTML ---
   const loginContainer = document.getElementById('loginContainer');
   const appContent     = document.getElementById('appContent');
   const loginBtn       = document.getElementById('loginBtn');
   const logoutBtn      = document.getElementById('logoutBtn');
   const emailText      = document.getElementById('emailText');
 
-  // Si querés que arranque oculto el contenido para no parpadear en carga
+  // --- Área de errores visible (la creo si no existe) ---
+  let errorBox = document.getElementById('authErrorBox');
+  if (!errorBox) {
+    errorBox = document.createElement('div');
+    errorBox.id = 'authErrorBox';
+    errorBox.style.cssText = 'margin:10px auto;max-width:900px;color:#b00020;background:#ffe6e9;border:1px solid #b00020;padding:10px;display:none;border-radius:6px;';
+    loginContainer?.appendChild(errorBox);
+  }
+  function showError(msg) {
+    if (!errorBox) return;
+    errorBox.textContent = msg;
+    errorBox.style.display = 'block';
+  }
+  function hideError() {
+    if (!errorBox) return;
+    errorBox.style.display = 'none';
+  }
+
+  // --- Ocultar app de entrada ---
   ocultarApp();
 
-  // --- Observador de sesión: se dispara en cada cambio de login/logout ---
+  // --- Detectar si se abrió como file:// (esto rompe Google Auth) ---
+  if (location.protocol === 'file:') {
+    showError('⚠️ Google Sign-In no funciona con file://. Abrí este archivo con un servidor (http://localhost). Por ejemplo: "npx serve", "Live Server" de VSCode o "python -m http.server". También asegurate de tener "localhost" en Authorized domains de Firebase.');
+  }
+
+  // --- Estado de sesión ---
   auth.onAuthStateChanged((user) => {
+    hideError();
     if (user) {
-      // Logueado
       emailText.textContent = user.email || '';
       mostrarApp();
     } else {
-      // Deslogueado
       emailText.textContent = '';
       ocultarApp();
     }
   });
 
-  // --- Funciones que ya invocás desde tu HTML con onclick ---
+  // --- Funciones que usás desde el HTML ---
   async function login() {
+    hideError();
     try {
+      if (location.protocol === 'file:') {
+        showError('⚠️ No se puede iniciar sesión desde file://. Usá http://localhost y agregá "localhost" en Authorized domains de Firebase.');
+        return;
+      }
       loginBtn.disabled = true;
+      // Intento con popup
       await auth.signInWithPopup(provider);
-      // onAuthStateChanged actualizará la UI
     } catch (err) {
-      console.error('Error al iniciar sesión:', err);
-      alert('No se pudo iniciar sesión con Google.\n\n' + (err?.message || err));
+      // Si el popup está bloqueado, probamos redirect
+      if (err && (err.code === 'auth/popup-blocked' || err.code === 'auth/popup-closed-by-user')) {
+        try {
+          await auth.signInWithRedirect(provider);
+          return;
+        } catch (e2) {
+          console.error('Redirect también falló:', e2);
+          showError('Error al iniciar sesión (redirect): ' + (e2?.message || e2));
+        }
+      } else {
+        console.error('Error al iniciar sesión:', err);
+        showError('Error al iniciar sesión: ' + (err?.message || err));
+      }
     } finally {
       loginBtn.disabled = false;
     }
   }
 
   async function logout() {
+    hideError();
     try {
       await auth.signOut();
-      // onAuthStateChanged actualizará la UI
     } catch (err) {
       console.error('Error al cerrar sesión:', err);
-      alert('No se pudo cerrar sesión.\n\n' + (err?.message || err));
+      showError('Error al cerrar sesión: ' + (err?.message || err));
     }
   }
 
-  // --- Helpers de UI (mostrar/ocultar) ---
+  // --- Helpers UI ---
   function mostrarApp() {
     if (loginContainer) loginContainer.style.display = 'none';
     if (appContent) {
@@ -489,10 +529,11 @@ function ocultarTodo() {
     if (logoutBtn) logoutBtn.style.display = 'none';
   }
 
-  // Exponer funciones al scope global porque las llamás con onclick=""
+  // Exponer por los onclick del HTML
   window.login = login;
   window.logout = logout;
 </script>
+
 
 </body>
 </html>

@@ -283,35 +283,6 @@
       
 <script>
 
-    const respuestasPorFalla = {
-      "No enciende": [
-        ["Revisar batería", "Medir batería para saber si funciona."],
-        ["Botón de encendido", "Verificar si el botón funciona correctamente."],
-        ["Placa base", "Posible falla de alimentación o cortocircuito."]
-      ],
-      "No tiene sonido": [
-        ["Altavoz", "Probar el parlante con otro equipo."],
-        ["Conectores", "Verificar si están sulfatados o desconectados."],
-        ["Placa base", "Fallo en circuito de audio."]
-      ],
-      "No puedo hacer llamadas": [
-        ["Estado del IMEI", "Verificar si el equipo fue dado de baja."],
-        ["Chip", "Probar con otro chip o limpiar la bandeja."],
-        ["Señal", "Revisar si toma señal correctamente."]
-      ],
-      "El teléfono se calienta": [
-        ["Batería", "Puede estar defectuosa o vieja."],
-        ["Apps en segundo plano", "Cerrar procesos que usen muchos recursos."],
-        ["Mantenimiento", "Limpiar placa, cambiar pasta térmica."]
-      ],
-
-      "Mi celular se apaga solo": [
-        ["Boton de encendido", "Puede estar en corto o dañado"],
-        ["Batería", "Conector de batería dañado o batería en mal estado"],
-        ["Placa Madre", "Cortocircuito o placa dañada"]
-      ]
-    };
-
 function showResponse(falla) {
   ocultarTodo();
   const respuestas = document.getElementById("respuestas");
@@ -435,5 +406,93 @@ function ocultarTodo() {
       }
     }
   </script>
+    <!-- Firebase (CDN compat) + Auth -->
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+
+<script>
+  // --- Config de tu proyecto (la que me pasaste) ---
+  const firebaseConfig = {
+    apiKey: "AIzaSyBW_GYELchHB-VoIc7TR1XPK-tkE4bLutg",
+    authDomain: "iniciopruebabeta.firebaseapp.com",
+    projectId: "iniciopruebabeta",
+    storageBucket: "iniciopruebabeta.firebasestorage.app",
+    messagingSenderId: "17837784293",
+    appId: "1:17837784293:web:94538fc553b24751b5680c"
+  };
+
+  // --- Inicializar Firebase + Auth (modo compat para HTML puro) ---
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const provider = new firebase.auth.GoogleAuthProvider();
+
+  // --- Referencias a elementos del DOM que ya existen en tu HTML ---
+  const loginContainer = document.getElementById('loginContainer');
+  const appContent     = document.getElementById('appContent');
+  const loginBtn       = document.getElementById('loginBtn');
+  const logoutBtn      = document.getElementById('logoutBtn');
+  const emailText      = document.getElementById('emailText');
+
+  // Si querés que arranque oculto el contenido para no parpadear en carga
+  ocultarApp();
+
+  // --- Observador de sesión: se dispara en cada cambio de login/logout ---
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      // Logueado
+      emailText.textContent = user.email || '';
+      mostrarApp();
+    } else {
+      // Deslogueado
+      emailText.textContent = '';
+      ocultarApp();
+    }
+  });
+
+  // --- Funciones que ya invocás desde tu HTML con onclick ---
+  async function login() {
+    try {
+      loginBtn.disabled = true;
+      await auth.signInWithPopup(provider);
+      // onAuthStateChanged actualizará la UI
+    } catch (err) {
+      console.error('Error al iniciar sesión:', err);
+      alert('No se pudo iniciar sesión con Google.\n\n' + (err?.message || err));
+    } finally {
+      loginBtn.disabled = false;
+    }
+  }
+
+  async function logout() {
+    try {
+      await auth.signOut();
+      // onAuthStateChanged actualizará la UI
+    } catch (err) {
+      console.error('Error al cerrar sesión:', err);
+      alert('No se pudo cerrar sesión.\n\n' + (err?.message || err));
+    }
+  }
+
+  // --- Helpers de UI (mostrar/ocultar) ---
+  function mostrarApp() {
+    if (loginContainer) loginContainer.style.display = 'none';
+    if (appContent) {
+      appContent.style.display = 'flex';   // tu contenedor usa flex
+      appContent.style.width   = '100%';
+    }
+    if (logoutBtn) logoutBtn.style.display = 'inline-block';
+  }
+
+  function ocultarApp() {
+    if (loginContainer) loginContainer.style.display = 'block';
+    if (appContent) appContent.style.display = 'none';
+    if (logoutBtn) logoutBtn.style.display = 'none';
+  }
+
+  // Exponer funciones al scope global porque las llamás con onclick=""
+  window.login = login;
+  window.logout = logout;
+</script>
+
 </body>
 </html>
